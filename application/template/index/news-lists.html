@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background: #efefef">
+<style>
+    .news-box{
+        width: 1000px;
+        margin: 10px auto;
+        background: #fff;
+    }
+    .news-box h3{
+        text-align: center;
+    }
+    .news-box .info {
+        text-align: center;
+    }
+    .list-box{
+        width: 800px;margin: auto;
+    }
+    .list{
+        width: 50%;height: 200px;
+        float: left;padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid red;
+    }
+    .list img{
+        width: 100%;
+    }
+    h4{
+        padding-top: 0;margin: 0;
+    }
+    .news-info{
+
+    }
+</style>
+
+{include file=$header}
+
+<div class="news-box">
+    <h3>新闻中心</h3>
+<!--    <div class="info">新闻中心描述</div>-->
+    <div class="info">{$parentInfo["info"]}</div>
+    <h3>
+<!--        <a href="">链接1</a>-->
+<!--        <a href="">链接2</a>-->
+<!--        <a href="">链接3</a>-->
+        {foreach $silbing as $v}
+        <a href="/mvc2/index.php/index/lists?cid={$v['cid']}">{$v["cname"]}</a>
+        {/foreach}
+    </h3>
+    <div class="list-box">
+        {foreach $condata as $v}
+        <a href="/mvc2/index.php/index/show?conid={$v['conid']}" class="list">
+            <img src="{$v['imgurl']}" alt="" height="100">
+            <h4>{$v["ctitle"]}</h4>
+            <div class="news-info">
+                {$v["info"]}
+            </div>
+        </a>
+        {/foreach}
+
+        <!--        <div class="list">-->
+<!--            <img src="{IMG_ADD}list.jpg" alt="">-->
+<!--            <h4>新闻的标题</h4>-->
+<!--            <div class="news-info">-->
+<!--                新闻的描述-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <img src="{IMG_ADD}list.jpg" alt="">-->
+<!--            <h4>新闻的标题</h4>-->
+<!--            <div class="news-info">-->
+<!--                新闻的描述-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <img src="{IMG_ADD}list.jpg" alt="">-->
+<!--            <h4>新闻的标题</h4>-->
+<!--            <div class="news-info">-->
+<!--                新闻的描述-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <img src="{IMG_ADD}list.jpg" alt="">-->
+<!--            <h4>新闻的标题</h4>-->
+<!--            <div class="news-info">-->
+<!--                新闻的描述-->
+<!--            </div>-->
+<!--        </div>-->
+        
+        <div style="clear: both"></div>
+    </div>
+</div>
+
+{include file=$footer}
+</body>
+</html>

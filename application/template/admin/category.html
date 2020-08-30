@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{CSS_ADD}admin/bootstrap.css">
+</head>
+<body>
+<div class="container">
+<!--    <form action="/mvc2/index.php/admin/category/add" style="margin-top: 30px;margin-bottom: 30px;" method="post" >-->
+<!--        <input type="text" placeholder="添加一级栏目" name="cname">-->
+<!--        <select name="isshow" id="">-->
+<!--            <option value="1">在导航可见</option>-->
+<!--            <option value="0">在导航不可见</option>-->
+<!--        </select>-->
+<!--        <input type="text" name="tpl_name" placeholder="输入对应的模版">-->
+<!--        <input type="submit" value="添加" >-->
+<!--    </form>-->
+    {if $data}
+    <table class="table table-bordered">
+        {$data}
+    </table>
+<!--    <table class="table table-bordered">-->
+    <!--        <tr>-->
+<!--            <td>层级</td>-->
+<!--            <td>分类名称</td>-->
+<!--            <td>编辑</td>-->
+<!--        </tr>-->
+<!--        {foreach $data as $v}-->
+<!--        <tr>-->
+<!--            <td>一级分类</td>-->
+<!--            <td>{$v["cname"]}</td>-->
+<!--            <td>-->
+<!--                <a href="javascript:;" attr="{$v['cid']}">-->
+<!--                    添加-->
+<!--                </a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        {/foreach}-->
+<!--        <tr>-->
+<!--            <td>二级分类</td>-->
+<!--            <td>->项目</td>-->
+<!--            <td>添加</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>三级分类</td>-->
+<!--            <td>->->项目</td>-->
+<!--            <td>添加</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>一级分类</td>-->
+<!--            <td>项目</td>-->
+<!--            <td>添加</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+    {else}
+    <table>
+        <tr>
+            <td>没有数据</td>
+        </tr>
+    </table>
+    {/if}
+</div>
+<style>
+    .panel{
+        width: 50%;height: 50%;
+        background: #fff;
+        box-shadow: 0 0 3px rebeccapurple;
+        position:fixed;
+        left: 0;right:0;top: 20%;margin: auto;
+        z-index: 1;
+        display: none;
+    }
+</style>
+<div class="panel addpanel">
+    <div class="close">
+        x
+    </div>
+    <form action="/mvc2/index.php/admin/category/add" method="post" >
+        <input type="text" name="cname"><br>
+        <input type="hidden" name="cid"><br>
+        <select name="isshow" id="">
+            <option value="1">在导航可见</option>
+            <option value="0">在导航不可见</option>
+        </select><br>
+        <input type="text" name="tpl_name" placeholder="输入对应的模版"><br>
+        栏目描述：<textarea name="info"></textarea>
+        <input type="submit" value="提交">
+    </form>
+</div>
+<div class="panel editpanel">
+    <div class="close ">
+        x
+    </div>
+    <form action="/mvc2/index.php/admin/category/add" method="post" >
+        <input type="text" name="cname">
+        <select name="pid" id="opts">
+
+        </select>
+        <select name="isshow" id="isshow">
+            <option value="1">在导航可见</option>
+            <option value="0">在导航不可见</option>
+        </select><br>
+        <input type="text" name="tpl_name" placeholder="输入对应的模版"><br>
+        栏目描述：<textarea name="info" ></textarea>
+
+        <input type="hidden" name="imgurl" id="imgurl">
+
+        <div class="editupload">
+
+        </div>
+        <input type="button" value="修改">
+    </form>
+</div>
+<script src="{JS_ADD}jquery-3.1.1.js"></script>
+<script src="{JS_ADD}category.js"></script>
+<script src="{JS_ADD}upload.js"></script>
+<script>
+    var uploadObj=new upload();
+
+    uploadObj.createView({
+        parent:document.querySelector(".editupload")
+    })
+    uploadObj.selectBtn.parentNode.style.lineHeight="50px";
+    uploadObj.upBtn.style.lineHeight="50px";
+    uploadObj.up("/mvc2/index.php/admin/category/uploadfile",function (e) {
+        // $("input[type=hidden]").val(e[0]);
+        $("#imgurl").val(e[0]);
+    })
+</script>
+</body>
+</html>

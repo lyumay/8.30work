@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务与支持--仅作学习使用，侵删</title>
+</head>
+<link rel="stylesheet" href="{CSS_ADD}index/common.cs">
+<link rel="stylesheet" href="{CSS_ADD}index/support.css">
+<body>
+{include file=$header}
+
+<!-- 介绍图片开始 -->
+<div class="descImg"></div>
+<!-- 介绍图片结束 -->
+
+<!-- 服务与支持开始 -->
+<div class="record">
+    <div class="proTit">
+        <p>服务与支持</p>
+    </div>
+    <ul class="lists-box">
+        <div class="list-content">
+            {foreach $soninfo as $v}
+            <li class="list" style="margin-left: 100px">
+                <a href="/mvc2/index.php/index/lists?cid={$v['cid']}">
+                    <img src="{$v['imgurl']}" alt="" height="60px">
+                    <p style="color: black"> {$v["cname"]}</p>
+                </a>
+            </li>
+            {/foreach}
+            <div style="clear:both"></div>
+        </div>
+    </ul>
+</div>
+<!-- 服务与支持结束 -->
+{include file=$footer}
+</body>
+</html>

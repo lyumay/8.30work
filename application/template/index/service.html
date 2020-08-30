@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{CSS_ADD}index/index.css">
+    <link rel="stylesheet" href="{CSS_ADD}index/service.css">
+</head>
+<body >
+{include file=$header}
+<div class="descImg"></div>
+<div class="newPro">
+    <div class="proTit">
+        <p>产品说明书下载</p>
+    </div>
+</div>
+<style>
+    .my-service{
+        /*border: 1px solid red;*/
+        width: 1200px;
+        text-align:left;
+        margin: 10px auto;
+        background: white;
+    }
+    .my-service h3{
+        font-family: 微软雅黑;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+        padding: 0 0 10px 0;
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        /*border-color: black;*/
+    }
+    .my-service-box{
+        width: 1200px;margin: auto;
+        /*border: 1px solid blue ;*/
+    }
+    .my-service-list{
+        float: left;width: 590px;height: 70px;
+        margin-right: 10px;
+    }
+    .my-service-list h4{
+        margin-top: 35px;
+        font-family: Open Sans;
+        font-size: 15px;
+        font-weight: normal;
+        font-style: normal;
+        color: #4f4f4f;
+        padding: 0 0 10px 0;
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        border-color: #dfdde5;
+    }
+    .my-service-list a{
+         display:inline-block;
+        float: right;
+        background: #333333;
+        width: 60px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+    }
+    h1,h2,h3,h4,h5,h6{
+        padding: 0;margin: 0;
+    }
+</style>
+
+<div class="my-service">
+    <h3>{$soninfo[0]["cname"]}</h3>
+    <div class="my-service-box">
+        {foreach $coninfo[0] as $v}
+        <ul class="my-service-list">
+            <li>
+                <h4>{$v["ctitle"]}<a href="" style="color: white">下载</a></h4>
+            </li>
+        </ul>
+        {/foreach}
+        <div style="clear: both"></div>
+    </div>
+</div>
+
+<div class="my-service">
+    <h3>{$soninfo[1]["cname"]}</h3>
+    <div class="my-service-box">
+        {foreach $coninfo[1] as $v}
+        <ul class="my-service-list">
+            <li>
+                <h4>{$v["ctitle"]}<a href="" style="color: white">下载</a></h4>
+            </li>
+        </ul>
+        {/foreach}
+        <div style="clear: both"></div>
+    </div>
+</div>
+
+<div class="my-service">
+    <h3>{$soninfo[2]["cname"]}</h3>
+    <div class="my-service-box">
+        {foreach $coninfo[2] as $v}
+        <ul class="my-service-list">
+            <li>
+                <h4>{$v["ctitle"]}<a href="" style="color: white">下载</a></h4>
+            </li>
+        </ul>
+        {/foreach}
+        <div style="clear: both"></div>
+    </div>
+</div>
+<div class="my-service">
+    <h3>{$soninfo[3]["cname"]}</h3>
+    <div class="my-service-box">
+        {foreach $coninfo[3] as $v}
+        <ul class="my-service-list">
+            <li>
+                <h4>{$v["ctitle"]}<a href="" style="color: white">下载</a></h4>
+            </li>
+        </ul>
+        {/foreach}
+        <div style="clear: both"></div>
+    </div>
+</div>
+{include file=$footer}
+</body>
+</html>

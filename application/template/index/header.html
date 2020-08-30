@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="{CSS_ADD}index/common.css">
+<header>
+    <div class="headerContent">
+        <a href="/mvc2/index.php">
+        <div class="logo"><img src="{IMG_ADD}logo.png" alt=""></div>
+        </a>
+        <ul class="menu">
+            {foreach $menuData as $v}
+            <li>
+                <a href="/mvc2/index.php/index/category?cid={$v['cid']}">{$v["cname"]}</a>
+                {if isset($v["child"])}
+                <ul class="son">
+                    {foreach $v["child"] as $v1}
+                    <li>
+                        <a href="/mvc2/index.php/index/lists?cid={$v1['cid']}">
+                            {$v1["cname"]}
+                        </a>
+                    </li>
+                    {/foreach}
+                </ul>
+                {/if}
+            </li>
+            {/foreach}
+
+        </ul>
+        <div class="search">
+            <div class="mall">
+                <div>
+                    <a href="https://mall.jd.com/index-623999.html">商城</a> </div>
+                <div>EN</div>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="请输入搜索内容">
+            </div>
+        </div>
+        <div class="login">
+            <span><a href="/mvc2/application/template/index/login.html">登录</a></span>
+            <span><a href="/mvc2/application/template/index/enroll.html">注册</a></span>
+        </div>
+    </div>
+</header>
+
+
+<!-- 浮动头部开始 -->
+<div class="floatHeade">
+    <div class="headerContent">
+        <a href="/mvc2/index.php">
+            <div class="logo"><img src="{IMG_ADD}logo.png" alt=""></div>
+        </a>
+        <ul class="menu">
+<!--            <li>-->
+<!--                <a href="/mvc2/index.php"> 首页</a>-->
+<!--            </li>-->
+            {foreach $menuData as $v}
+            <li>
+                <a href="/mvc2/index.php/index/category?cid={$v['cid']}">{$v["cname"]}</a>
+            </li>
+            {/foreach}
+
+        </ul>
+        <div class="search">
+            <div class="mall">
+                <div> <a href="https://mall.jd.com/index-623999.html">商城</a></div>
+                <div>EN</div>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="请输入搜索内容">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{JS_ADD}index.js"></script>
+<!-- 浮动头部结束 -->

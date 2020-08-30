@@ -1,0 +1,45 @@
+.descImg{
+    width: 100%;
+    height: auto;
+    background: url("../../img/desc4.jpg");
+    height: 450px;
+}
+.newPro{
+    width: 1300px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.newPro .proTit p{
+    position: relative;
+    width: 280px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.newPro .proTit p:first-child:before{
+    position: absolute;
+    content: "";
+    width: 100px;
+    top: 50%;
+    height: 1px;
+    background: black;
+    left: -120px;
+}
+
+.newPro .proTit p:first-child:after{
+    position: absolute;
+    content: "";
+    width: 100px;
+    top: 50%;
+    height: 1px;
+    background: black;
+    right: -120px;
+}
